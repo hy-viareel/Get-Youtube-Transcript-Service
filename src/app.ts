@@ -16,6 +16,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../', 'public')));
 import captionsRouter from './router/router';
 
+app.use('/', (_, res) => {
+    res.status(200).json({
+        status: 'success',
+        message: 'Welcome to Youtube Transcript Service'
+    });
+});
 app.use('/api/v1/captions', captionsRouter);
 
 // 404 Handler
