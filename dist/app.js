@@ -16,6 +16,12 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../', 'public')));
 const router_1 = __importDefault(require("./router/router"));
+app.use('/', (_, res) => {
+    res.status(200).json({
+        status: 'success',
+        message: 'Welcome to Youtube Transcript Service'
+    });
+});
 app.use('/api/v1/captions', router_1.default);
 app.use((req, _, next) => {
     try {
