@@ -17,7 +17,7 @@ export const getCaptions = async (req: Request, res: Response): Promise<Response
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            error: 'An unexpected error occurred.'
+            error: error || 'An unexpected error occurred.'
         });
     }
 };
