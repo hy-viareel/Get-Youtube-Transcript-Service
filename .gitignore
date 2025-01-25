@@ -1,0 +1,14 @@
+node_modules
+.env
+.env.development
+*.cpp
+*.out
+*.py
+*.txt
+
+.env.*
+
+
+#logs
+*.log
+.vercel

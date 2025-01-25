@@ -1,0 +1,23 @@
+import { Request, Response } from 'express';
+import { YoutubeTranscript } from 'youtube-transcript';
+
+export const getCaptions = async (req: Request, res: Response): Promise<Response> => {
+    try {
+        const videoId = req.query.videoId;
+
+        if (!videoId || typeof videoId !== 'string') {
+            return res.status(400).json({ error: 'The "videoId" parameter is required and must be a string.' });
+        }
+
+        const transcript = await YoutubeTranscript.fetchTranscript(videoId);
+        return res.status(200).json({
+            youtubeId: videoId,
+            transcript
+        });
+    } catch (error) {
+        return res.status(500).json({
+            error: 'An unexpected error occurred.'
+        });
+    }
+};
+

@@ -1,0 +1,23 @@
+{
+  "name": "viareel-youtube-transcript-service",
+  "version": "1.0.0",
+  "description": "This is backend service for fetching youtube transcript service.",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
+    "build": "npx tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "dotenv-flow": "^4.1.0",
+    "express": "^4.21.2",
+    "youtube-transcript": "^1.2.1"
+  }
+}
