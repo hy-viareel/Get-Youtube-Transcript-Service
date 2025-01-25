@@ -14,6 +14,7 @@ const youtube_transcript_1 = require("youtube-transcript");
 const getCaptions = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const videoId = req.query.videoId;
+        console.log('VideoId', videoId);
         if (!videoId || typeof videoId !== 'string') {
             return res.status(400).json({ error: 'The "videoId" parameter is required and must be a string.' });
         }
@@ -24,6 +25,7 @@ const getCaptions = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
     }
     catch (error) {
+        console.log(error);
         return res.status(500).json({
             error: 'An unexpected error occurred.'
         });
