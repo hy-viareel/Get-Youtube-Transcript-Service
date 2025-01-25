@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { responseMessage } from './constants/responseMessage';
 import httpError from './utils/httpError';
+import captionsRouter from './router/router';
 
 dotenv.config();
 
@@ -14,7 +15,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../', 'public')));
-import captionsRouter from './router/router';
 
 app.use('/api/v1/captions', captionsRouter);
 app.use('/', (_, res) => {

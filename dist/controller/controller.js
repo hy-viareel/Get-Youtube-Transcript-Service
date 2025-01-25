@@ -19,6 +19,11 @@ const getCaptions = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             return res.status(400).json({ error: 'The "videoId" parameter is required and must be a string.' });
         }
         const transcript = yield youtube_transcript_1.YoutubeTranscript.fetchTranscript(videoId);
+        if (!transcript || transcript.length === 0) {
+            return res.status(404).json({
+                error: 'No transcript found for the given video ID.'
+            });
+        }
         return res.status(200).json({
             youtubeId: videoId,
             transcript

@@ -10,6 +10,13 @@ export const getCaptions = async (req: Request, res: Response): Promise<Response
         }
 
         const transcript = await YoutubeTranscript.fetchTranscript(videoId);
+
+        if (!transcript || transcript.length === 0) {
+            return res.status(404).json({
+                error: 'No transcript found for the given video ID.'
+            });
+        }
+
         return res.status(200).json({
             youtubeId: videoId,
             transcript

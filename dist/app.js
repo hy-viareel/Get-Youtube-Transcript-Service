@@ -9,13 +9,13 @@ const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 const responseMessage_1 = require("./constants/responseMessage");
 const httpError_1 = __importDefault(require("./utils/httpError"));
+const router_1 = __importDefault(require("./router/router"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../', 'public')));
-const router_1 = __importDefault(require("./router/router"));
 app.use('/api/v1/captions', router_1.default);
 app.use('/', (_, res) => {
     res.status(200).json({
