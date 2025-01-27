@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import { getCaptions } from '../controller/controller';
+// import { Router } from 'express';
+// import { getCaptions } from '../controller/controller';
 
-const router = Router();
+// const router = Router();
 
-router.route('/get-captions').get(getCaptions);
+// router.route('/get-captions').get(getCaptions);
 
-export default router;
+// export default router;
 
